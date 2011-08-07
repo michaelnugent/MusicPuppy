@@ -1,7 +1,11 @@
 #!/bin/bash
 
-SERVER_URI="<your server here>"
-BTADDR="<your BT ID here>"
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 SERVER_URI BTADDR"
+fi
+
+SERVER_URI=$1
+BTADDR=$2
 
 DBUSADDR=`grep -z DBUS_SESSION_BUS_ADDRESS /proc/*/environ 2> /dev/null| sed 's/DBUS/\nDBUS/g' | tail -1`
 
@@ -19,4 +23,4 @@ if [ -z "$NAME" ] ; then
 else
     `rhythmbox-client --play-uri=$SERVER_URI`
 fi
-
+exit 0
