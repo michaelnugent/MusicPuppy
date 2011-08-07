@@ -2,6 +2,7 @@
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 SERVER_URI BTADDR"
+    exit 1
 fi
 
 SERVER_URI=$1
